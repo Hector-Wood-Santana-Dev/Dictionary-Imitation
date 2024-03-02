@@ -56,12 +56,8 @@ public class Dictionary {
      * @param value of the element
      */
     public void insertElement(Object key, Object value){
-        //Checking the charge factor of the dictionary and expanding it
-
-        // TODO: HAY QUE METER EL IF EN EL METODO RESIZE
+        //Calling the resize method for checking the charge factor of the dictionary and expanding it if needed.
         resize();
-
-        //TODO: ALGO SIGUE FALLANDO CUANDO TIENE QUE HACER RESIZE.
 
         int hashKey = key.hashCode();
         int positionElement = hashKey % table.length;
@@ -74,6 +70,7 @@ public class Dictionary {
             for (int i = positionElement; i < table.length; i++) {
                 if (table[i].flag == 1 && key.equals(table[i].getKey())){
                     table[i].setValue(value);
+                    break;
                 } else {
                     table[i] = new Element(key, value, 1);
                     size++;
@@ -82,12 +79,14 @@ public class Dictionary {
             for (int i = positionElement; i > 0; i--) {
                 if (table[i].flag == 1 && key.equals(table[i].getKey())){
                     table[i].setValue(value);
+                    break;
                 } else {
                     table[i] = new Element(key, value, 1);
                     size++;
                 }
             }
         }
+
     }
 
     /**
@@ -109,9 +108,9 @@ public class Dictionary {
     @Override
     public String toString() {
         return "Dictionary{" +
-                "table=" + Arrays.toString(table) +
                 ",\n size=" + size +
                 ",\n chargeFactor=" + chargeFactor +
+                ", \n table=" + Arrays.toString(table) +
                 '}';
     }
 }
