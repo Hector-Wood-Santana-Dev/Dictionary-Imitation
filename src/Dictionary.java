@@ -86,7 +86,20 @@ public class Dictionary {
                 }
             }
         }
+    }
 
+    /**
+     * Method for deleting and element from the dictionary, by marking the flag to 2 (liberated).
+     * @param key
+     */
+    public void deleteElement(Object key){
+        int hashKey = key.hashCode();
+        int positionElement = hashKey % table.length;
+
+        if (table[positionElement].flag == 1) {
+            table[positionElement].setFlag(2);
+            size--;
+        }
     }
 
     /**

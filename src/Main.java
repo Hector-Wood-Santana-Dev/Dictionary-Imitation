@@ -12,7 +12,9 @@ public class Main {
         System.out.println(dictionary.toString());
         dictionary.insertElement(12,"TEST");
         System.out.println(dictionary.toString());
-
-
+        dictionary.deleteElement(13);
+        System.out.println(dictionary.toString());
+        dictionary.insertElement(13, "tetetet");
+        System.out.println(dictionary.toString());
     }
 }
