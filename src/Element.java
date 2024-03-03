@@ -7,7 +7,7 @@ public class Element {
      * 1 for occupied
      * 2 for liberated
      */
-    int flag;
+    protected int flag;
 
     public Element(Object key, Object value, int flag) {
         this.key = key;
@@ -19,7 +19,7 @@ public class Element {
         return key;
     }
 
-    public void setKey(Object key) {
+    protected void setKey(Object key) {
         this.key = key;
     }
 
@@ -27,7 +27,7 @@ public class Element {
         return value;
     }
 
-    public void setValue(Object value) {
+    protected void setValue(Object value) {
         this.value = value;
     }
 
@@ -35,7 +35,7 @@ public class Element {
         return flag;
     }
 
-    public void setFlag(int flag) {
+    protected void setFlag(int flag) {
         this.flag = flag;
     }
 

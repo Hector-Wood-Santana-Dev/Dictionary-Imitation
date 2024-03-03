@@ -59,30 +59,34 @@ public class Dictionary {
         //Calling the resize method for checking the charge factor of the dictionary and expanding it if needed.
         resize();
 
-        int hashKey = key.hashCode();
-        int positionElement = hashKey % table.length;
+        if (key == null){
+            System.out.println("The key cannot be null. Please enter a valid type.");
+        }else {
+            int hashKey = key.hashCode();
+            int positionElement = hashKey % table.length;
 
-        //Checking if the space is free or liberated
-        if (table[positionElement].flag == 0 || table[positionElement].flag == 2) {
-            table[positionElement] = new Element(key, value, 1);
-            size++;
-        } else {
-            for (int i = positionElement; i < table.length; i++) {
-                if (table[i].flag == 1 && key.equals(table[i].getKey())){
-                    table[i].setValue(value);
-                    break;
-                } else {
-                    table[i] = new Element(key, value, 1);
-                    size++;
+            //Checking if the space is free or liberated
+            if (table[positionElement].flag == 0 || table[positionElement].flag == 2) {
+                table[positionElement] = new Element(key, value, 1);
+                size++;
+            } else {
+                for (int i = positionElement; i < table.length; i++) {
+                    if (table[i].flag == 1 && key.equals(table[i].getKey())){
+                        table[i].setValue(value);
+                        break;
+                    } else {
+                        table[i] = new Element(key, value, 1);
+                        size++;
+                    }
                 }
-            }
-            for (int i = positionElement; i > 0; i--) {
-                if (table[i].flag == 1 && key.equals(table[i].getKey())){
-                    table[i].setValue(value);
-                    break;
-                } else {
-                    table[i] = new Element(key, value, 1);
-                    size++;
+                for (int i = positionElement; i > 0; i--) {
+                    if (table[i].flag == 1 && key.equals(table[i].getKey())){
+                        table[i].setValue(value);
+                        break;
+                    } else {
+                        table[i] = new Element(key, value, 1);
+                        size++;
+                    }
                 }
             }
         }
@@ -93,12 +97,16 @@ public class Dictionary {
      * @param key
      */
     public void deleteElement(Object key){
-        int hashKey = key.hashCode();
-        int positionElement = hashKey % table.length;
 
-        if (table[positionElement].flag == 1) {
-            table[positionElement].setFlag(2);
-            size--;
+        if (key == null){
+            System.out.println("The key cannot be null. Please enter a valid type.");
+        }else {
+            int hashKey = key.hashCode();
+            int positionElement = hashKey % table.length;
+            if (table[positionElement].flag == 1) {
+                table[positionElement].setFlag(2);
+                size--;
+            }
         }
     }
 
@@ -117,6 +125,24 @@ public class Dictionary {
             this.size = exchangeDictionary.size;
         }
     }
+
+
+    /*
+    TODO: dict.keys(): Returns a view of all keys in the dictionary.
+    TODO: dict.values(): Returns a view of all values in the dictionary.
+    TODO: dict.items(): Returns a view of all key-value pairs in the dictionary as tuples.
+    TODO: dict.get(key[, default]): Returns the value associated with the given key. If the key is not found, it returns the default value (or None if not provided).
+    TODO: dict.setdefault(key[, default]): Returns the value associated with the key. If the key is not found, it inserts the key with the default value (or None if not provided) and returns the default value.
+    TODO: dict.update(other_dict): Updates the dictionary with key-value pairs from another dictionary or iterable.
+    TODO: dict.pop(key[, default]): Removes the key and returns its value. If the key is not found, it returns the default value (or raises KeyError if not provided).
+    TODO: dict.popitem(): Removes and returns an arbitrary key-value pair as a tuple. Useful for FIFO operations.
+    TODO: dict.clear(): Removes all items from the dictionary.
+    TODO: dict.copy(): Returns a shallow copy of the dictionary.
+    TODO: len(dict): Returns the number of items in the dictionary.
+    TODO: key in dict: Returns True if the key exists in the dictionary, otherwise False.
+    TODO: dict.fromkeys(iterable[, value]): Returns a new dictionary with keys from an iterable and values set to a default value.
+    TODO: dict.items(): Returns a view object that displays a list of a dictionary's key-value tuple pairs.
+     */
 
     @Override
     public String toString() {
