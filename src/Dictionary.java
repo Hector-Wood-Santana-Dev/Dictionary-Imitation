@@ -127,7 +127,7 @@ public class Dictionary {
         }
     }
 
-    //TODO: dict.keys(): Returns a view of all keys in the dictionary.
+    //TODO: COMPROBAR: dict.keys(): Returns a view of all keys in the dictionary.
     /**
      * Method that shows all keys that are stored in the dictionary.
      */
@@ -139,7 +139,7 @@ public class Dictionary {
         }
     }
 
-    //TODO: dict.values(): Returns a view of all values in the dictionary.
+    //TODO: COMPROBAR: dict.values(): Returns a view of all values in the dictionary.
     /**
      * Method that shows all values that are stored in the dictionary
      */
