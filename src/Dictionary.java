@@ -59,6 +59,7 @@ public class Dictionary {
         //Calling the resize method for checking the charge factor of the dictionary and expanding it if needed.
         resize();
 
+        //TODO: Cambiar esto para hacer uso de bloques try-catch.
         if (key == null){
             System.out.println("The key cannot be null. Please enter a valid type.");
         }else {
@@ -126,10 +127,32 @@ public class Dictionary {
         }
     }
 
+    //TODO: dict.keys(): Returns a view of all keys in the dictionary.
+    /**
+     * Method that shows all keys that are stored in the dictionary.
+     */
+    public void viewKeys(){
+        for (int i = 0; i < table.length; i++) {
+            if (table[i].flag == 1) {
+                System.out.println(table[i].getKey());
+            }
+        }
+    }
+
+    //TODO: dict.values(): Returns a view of all values in the dictionary.
+    /**
+     * Method that shows all values that are stored in the dictionary
+     */
+    public void viewValues(){
+        for (int i = 0; i < table.length; i++) {
+            if (table[i].flag == 1) {
+                System.out.println(table[i].getValue());
+            }
+        }
+    }
 
     /*
-    TODO: dict.keys(): Returns a view of all keys in the dictionary.
-    TODO: dict.values(): Returns a view of all values in the dictionary.
+
     TODO: dict.items(): Returns a view of all key-value pairs in the dictionary as tuples.
     TODO: dict.get(key[, default]): Returns the value associated with the given key. If the key is not found, it returns the default value (or None if not provided).
     TODO: dict.setdefault(key[, default]): Returns the value associated with the key. If the key is not found, it inserts the key with the default value (or None if not provided) and returns the default value.

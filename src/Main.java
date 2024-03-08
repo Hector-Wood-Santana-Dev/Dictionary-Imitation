@@ -16,8 +16,11 @@ public class Main {
         System.out.println(dictionary.toString());
         dictionary.insertElement(13, "tetetet");
         System.out.println(dictionary.toString());
-        //TODO: Hay que proteger la key contra null.
         dictionary.insertElement(null,null);
         System.out.println(dictionary.toString());
+
+        dictionary.viewKeys();
+        dictionary.viewValues();
+
     }
 }
