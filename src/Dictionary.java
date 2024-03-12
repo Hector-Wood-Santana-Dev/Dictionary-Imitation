@@ -119,8 +119,8 @@ public class Dictionary {
             int newSize = table.length*2;
             Dictionary exchangeDictionary = new Dictionary(newSize);
 
-            for (int i = 0; i < table.length; i++) {
-                exchangeDictionary.insertElement(table[i].getKey(), table[i].getValue());
+            for (Element element : table) {
+                exchangeDictionary.insertElement(element.getKey(), element.getValue());
             }
             this.table = exchangeDictionary.table;
             this.size = exchangeDictionary.size;
@@ -132,9 +132,9 @@ public class Dictionary {
      * Method that shows all keys that are stored in the dictionary.
      */
     public void viewKeys(){
-        for (int i = 0; i < table.length; i++) {
-            if (table[i].flag == 1) {
-                System.out.println(table[i].getKey());
+        for (Element element : table) {
+            if (element.flag == 1) {
+                System.out.println(element.getKey());
             }
         }
     }
@@ -144,9 +144,9 @@ public class Dictionary {
      * Method that shows all values that are stored in the dictionary
      */
     public void viewValues(){
-        for (int i = 0; i < table.length; i++) {
-            if (table[i].flag == 1) {
-                System.out.println(table[i].getValue());
+        for (Element element : table) {
+            if (element.flag == 1) {
+                System.out.println(element.getValue());
             }
         }
     }
