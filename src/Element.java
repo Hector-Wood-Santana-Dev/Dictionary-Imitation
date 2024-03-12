@@ -3,8 +3,8 @@ public class Element {
     private Object value;
     /**
      * The variable "flag" can have 3 states:
-     * 0 for free
-     * 1 for occupied
+     * 0 for free,
+     * 1 for occupied,
      * 2 for liberated
      */
     protected int flag;

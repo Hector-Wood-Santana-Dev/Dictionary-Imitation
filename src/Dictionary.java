@@ -52,8 +52,8 @@ public class Dictionary {
      * Method for inserting an Element in the dictionary and checks if the size of the dictionary is greater than the
      * charge factor.
      *
-     * @param key of the element
-     * @param value of the element
+     * @param key Key of the element that we want to insert
+     * @param value Value of the element that we want to insert
      */
     public void insertElement(Object key, Object value){
         //Calling the resize method for checking the charge factor of the dictionary and expanding it if needed.
@@ -95,7 +95,7 @@ public class Dictionary {
 
     /**
      * Method for deleting and element from the dictionary, by marking the flag to 2 (liberated).
-     * @param key
+     * @param key Key of the object that we want to delete.
      */
     public void deleteElement(Object key){
 
@@ -127,7 +127,7 @@ public class Dictionary {
         }
     }
 
-    //TODO: COMPROBAR: dict.keys(): Returns a view of all keys in the dictionary.
+    //TODO: COMPROBAR: Hacer que se devuelva en un ARRAY. dict.keys(): Returns a view of all keys in the dictionary.
     /**
      * Method that shows all keys that are stored in the dictionary.
      */
@@ -139,7 +139,7 @@ public class Dictionary {
         }
     }
 
-    //TODO: COMPROBAR: dict.values(): Returns a view of all values in the dictionary.
+    //TODO: COMPROBAR: Hacer que se devuelva en un ARRAY. dict.values(): Returns a view of all values in the dictionary.
     /**
      * Method that shows all values that are stored in the dictionary
      */
@@ -151,21 +151,18 @@ public class Dictionary {
         }
     }
 
-    /*
-
-    TODO: dict.items(): Returns a view of all key-value pairs in the dictionary as tuples.
-    TODO: dict.get(key[, default]): Returns the value associated with the given key. If the key is not found, it returns the default value (or None if not provided).
-    TODO: dict.setdefault(key[, default]): Returns the value associated with the key. If the key is not found, it inserts the key with the default value (or None if not provided) and returns the default value.
-    TODO: dict.update(other_dict): Updates the dictionary with key-value pairs from another dictionary or iterable.
-    TODO: dict.pop(key[, default]): Removes the key and returns its value. If the key is not found, it returns the default value (or raises KeyError if not provided).
-    TODO: dict.popitem(): Removes and returns an arbitrary key-value pair as a tuple. Useful for FIFO operations.
-    TODO: dict.clear(): Removes all items from the dictionary.
-    TODO: dict.copy(): Returns a shallow copy of the dictionary.
-    TODO: len(dict): Returns the number of items in the dictionary.
-    TODO: key in dict: Returns True if the key exists in the dictionary, otherwise False.
-    TODO: dict.fromkeys(iterable[, value]): Returns a new dictionary with keys from an iterable and values set to a default value.
-    TODO: dict.items(): Returns a view object that displays a list of a dictionary's key-value tuple pairs.
-     */
+    //TODO: dict.items(): Returns a view of all key-value pairs in the dictionary as tuples.
+    //TODO: dict.get(key[, default]): Returns the value associated with the given key. If the key is not found, it returns the default value (or None if not provided).
+    //TODO: dict.setdefault(key[, default]): Returns the value associated with the key. If the key is not found, it inserts the key with the default value (or None if not provided) and returns the default value.
+    //TODO: dict.update(other_dict): Updates the dictionary with key-value pairs from another dictionary or iterable.
+    //TODO: dict.pop(key[, default]): Removes the key and returns its value. If the key is not found, it returns the default value (or raises KeyError if not provided).
+    //TODO: dict.popitem(): Removes and returns an arbitrary key-value pair as a tuple. Useful for FIFO operations.
+    //TODO: dict.clear(): Removes all items from the dictionary.
+    //TODO: dict.copy(): Returns a shallow copy of the dictionary.
+    //TODO: len(dict): Returns the number of items in the dictionary.
+    //TODO: key in dict: Returns True if the key exists in the dictionary, otherwise False.
+    //TODO: dict.fromkeys(iterable[, value]): Returns a new dictionary with keys from an iterable and values set to a default value.
+    //TODO: dict.items(): Returns a view object that displays a list of a dictionary's key-value tuple pairs.
 
     @Override
     public String toString() {
