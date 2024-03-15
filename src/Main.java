@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         Dictionary dictionary = new Dictionary(3);
@@ -17,10 +19,10 @@ public class Main {
         dictionary.insertElement(13, "tetetet");
         System.out.println(dictionary.toString());
         dictionary.insertElement(null,null);
-        System.out.println(dictionary.toString());
+        //System.out.println(dictionary.toString());
 
-        dictionary.viewKeys();
-        dictionary.viewValues();
-
+        Object[] var = dictionary.returnKeys();
+       // dictionary.viewValues();
+        System.out.println(Arrays.toString(var));
     }
 }

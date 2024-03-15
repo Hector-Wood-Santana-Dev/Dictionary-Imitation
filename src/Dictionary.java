@@ -59,38 +59,41 @@ public class Dictionary {
         //Calling the resize method for checking the charge factor of the dictionary and expanding it if needed.
         resize();
 
-        //TODO: Cambiar esto para hacer uso de bloques try-catch.
-        if (key == null){
+        int hashKey;
+        try {
+            hashKey = key.hashCode();
+        } catch (Exception e){
             System.out.println("The key cannot be null. Please enter a valid type.");
-        }else {
-            int hashKey = key.hashCode();
-            int positionElement = hashKey % table.length;
+            return;
+        }
 
-            //Checking if the space is free or liberated
-            if (table[positionElement].flag == 0 || table[positionElement].flag == 2) {
-                table[positionElement] = new Element(key, value, 1);
-                size++;
-            } else {
-                for (int i = positionElement; i < table.length; i++) {
-                    if (table[i].flag == 1 && key.equals(table[i].getKey())){
-                        table[i].setValue(value);
-                        break;
-                    } else {
-                        table[i] = new Element(key, value, 1);
-                        size++;
-                    }
+        int positionElement = hashKey % table.length;
+
+        //Checking if the space is free or liberated
+        if (table[positionElement].flag == 0 || table[positionElement].flag == 2) {
+            table[positionElement] = new Element(key, value, 1);
+            size++;
+        } else {
+            for (int i = positionElement; i < table.length; i++) {
+                if (table[i].flag == 1 && key.equals(table[i].getKey())){
+                    table[i].setValue(value);
+                    break;
+                } else {
+                    table[i] = new Element(key, value, 1);
+                    size++;
                 }
-                for (int i = positionElement; i > 0; i--) {
-                    if (table[i].flag == 1 && key.equals(table[i].getKey())){
-                        table[i].setValue(value);
-                        break;
-                    } else {
-                        table[i] = new Element(key, value, 1);
-                        size++;
-                    }
+            }
+            for (int i = positionElement; i > 0; i--) {
+                if (table[i].flag == 1 && key.equals(table[i].getKey())){
+                    table[i].setValue(value);
+                    break;
+                } else {
+                    table[i] = new Element(key, value, 1);
+                    size++;
                 }
             }
         }
+
     }
 
     /**
@@ -127,16 +130,18 @@ public class Dictionary {
         }
     }
 
-    //TODO: COMPROBAR: Hacer que se devuelva en un ARRAY. dict.keys(): Returns a view of all keys in the dictionary.
     /**
-     * Method that shows all keys that are stored in the dictionary.
+     * Method that returns an Array of Objects that are the keys stored in the dictionary.
+     * @return Keys stored in the dictionary, stored in an Array of Objects.
      */
-    public void viewKeys(){
-        for (Element element : table) {
-            if (element.flag == 1) {
-                System.out.println(element.getKey());
+    public Object[] returnKeys(){
+        Object[] list = new Object[size];
+        for (int i = 0; i <table.length; i++) {
+            if (table[i].flag == 1) {
+                list[i] = table[i].getKey();
             }
         }
+        return list;
     }
 
     //TODO: COMPROBAR: Hacer que se devuelva en un ARRAY. dict.values(): Returns a view of all values in the dictionary.
