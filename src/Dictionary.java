@@ -101,16 +101,17 @@ public class Dictionary {
      * @param key Key of the object that we want to delete.
      */
     public void deleteElement(Object key){
-
-        if (key == null){
+        int hashKey;
+        try {
+            hashKey = key.hashCode();
+        } catch (Exception e){
             System.out.println("The key cannot be null. Please enter a valid type.");
-        }else {
-            int hashKey = key.hashCode();
-            int positionElement = hashKey % table.length;
-            if (table[positionElement].flag == 1) {
-                table[positionElement].setFlag(2);
-                size--;
-            }
+            return;
+        }
+        int positionElement = hashKey % table.length;
+        if (table[positionElement].flag == 1) {
+            table[positionElement].setFlag(2);
+            size--;
         }
     }
 
@@ -136,7 +137,7 @@ public class Dictionary {
      */
     public Object[] returnKeys(){
         Object[] list = new Object[size];
-        for (int i = 0; i <table.length; i++) {
+        for (int i = 0; i < table.length; i++) {
             if (table[i].flag == 1) {
                 list[i] = table[i].getKey();
             }
@@ -144,16 +145,52 @@ public class Dictionary {
         return list;
     }
 
-    //TODO: COMPROBAR: Hacer que se devuelva en un ARRAY. dict.values(): Returns a view of all values in the dictionary.
     /**
-     * Method that shows all values that are stored in the dictionary
+     * Method that return an Array of Objects that are the values stored in the dictionary.
+     * @return Values stored in the dictionary, stored in an Array of Objects.
      */
-    public void viewValues(){
-        for (Element element : table) {
-            if (element.flag == 1) {
-                System.out.println(element.getValue());
+    public Object[] returnValues(){
+        Object[] list = new Object[size];
+        for (int i = 0; i < table.length; i++) {
+            if (table[i].flag == 1) {
+                list[i] = table[i].getValue();
             }
         }
+        return list;
+    }
+
+    /**
+     * Method that returns a value based of a key that is given.
+     * Returns the given byDefault value if the key is not found.
+     * Returns NULL if the given key if null, a not valid type.
+     * @param key Key of the key-value pair for searching the value.
+     * @param byDefault Value that is returned by default if the key is not found.
+     * @return Returns the value that is the pair from the given key.
+     */
+    public Object getDictionaryValue(Object key, Object byDefault){
+        int hashKey;
+        try {
+            hashKey = key.hashCode();
+        } catch (Exception e){
+             System.out.println("The key cannot be null. Please enter a valid type.");
+             return null;
+        }
+        int positionElement = hashKey % table.length;
+        if (key.equals(table[positionElement].getKey())) {
+            return table[positionElement].getValue();
+        } else{
+            for (int i = positionElement; i < table.length; i++) {
+                if (key.equals(table[positionElement].getKey())) {
+                    return table[positionElement].getValue();
+                }
+            }
+            for (int i = positionElement; i > 0; i--) {
+                if (key.equals(table[positionElement].getKey())) {
+                    return table[positionElement].getValue();
+                }
+            }
+        }
+        return byDefault;
     }
 
     //TODO: dict.items(): Returns a view of all key-value pairs in the dictionary as tuples.

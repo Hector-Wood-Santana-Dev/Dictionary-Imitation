@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         Dictionary dictionary = new Dictionary(3);
         System.out.println(dictionary.toString());
 
@@ -22,7 +22,11 @@ public class Main {
         //System.out.println(dictionary.toString());
 
         Object[] var = dictionary.returnKeys();
-       // dictionary.viewValues();
         System.out.println(Arrays.toString(var));
+        Object[] var2 = dictionary.returnValues();
+        System.out.println(Arrays.toString(var2));
+
+        Object var3 = dictionary.getDictionaryValue(77, "NO HAY");
+        System.out.println(var3);
     }
 }
