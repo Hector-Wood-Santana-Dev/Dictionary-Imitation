@@ -1,3 +1,5 @@
+package Dictionary;
+
 public class Element {
     private Object key;
     private Object value;
@@ -41,7 +43,7 @@ public class Element {
 
     @Override
     public String toString() {
-        return "Element{" +
+        return "Dictionary.Element{" +
                 "key=" + key +
                 ", value=" + value +
                 ", flag=" + flag +

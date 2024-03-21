@@ -1,8 +1,21 @@
+import Dictionary.*;
+
 import java.util.Arrays;
+ import org.junit.runner.RunWith;
+ import org.junit.runners.Suite;
+ import org.junit.runners.Suite.SuiteClasses;
+ import Tests.*;
+
+
+ @RunWith(Suite.class)
+ @SuiteClasses({
+         Tests.TestEmptyDictionary.class,
+
+ })
 
 public class Main {
     public static void main(String[] args){
-        Dictionary dictionary = new Dictionary(3);
+        Dictionary dictionary = new Dictionary();
         System.out.println(dictionary.toString());
 
 
@@ -19,7 +32,7 @@ public class Main {
         dictionary.insertElement(13, "tetetet");
         System.out.println(dictionary.toString());
         dictionary.insertElement(null,null);
-        //System.out.println(dictionary.toString());
+        System.out.println(dictionary.toString());
 
         Object[] var = dictionary.returnKeys();
         System.out.println(Arrays.toString(var));
@@ -29,4 +42,4 @@ public class Main {
         Object var3 = dictionary.getDictionaryValue(77, "NO HAY");
         System.out.println(var3);
     }
-}
+ }

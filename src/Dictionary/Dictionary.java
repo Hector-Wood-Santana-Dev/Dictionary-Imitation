@@ -1,7 +1,9 @@
+package Dictionary;
+
 import java.util.Arrays;
 
 /**
- * Class that imitates the function of a Dictionary from Python.
+ * Class that imitates the function of a Dictionary.Dictionary from Python.
  */
 public class Dictionary {
     /**
@@ -18,7 +20,7 @@ public class Dictionary {
     private final double chargeFactor;
 
     /**
-     * Basic Constructor for the Dictionary
+     * Basic Constructor for the Dictionary.Dictionary
      */
     public Dictionary() {
         table = new Element[10];
@@ -28,7 +30,7 @@ public class Dictionary {
     }
 
     /**
-     * Parametrized Constructor for creating a custom size Dictionary
+     * Parametrized Constructor for creating a custom size Dictionary.Dictionary
      */
     public Dictionary(int sizeDictionary) {
         table = new Element[sizeDictionary];
@@ -38,7 +40,7 @@ public class Dictionary {
     }
 
     /**
-     * Class for initializing the table with empty elements with flag to 0 (Free)
+     * Method for initializing the table with empty elements with flag to 0 (Free)
      *
      * @param table The array that emulates the dictionary
      */
@@ -49,7 +51,24 @@ public class Dictionary {
     }
 
     /**
-     * Method for inserting an Element in the dictionary and checks if the size of the dictionary is greater than the
+     * Method that returns the length of the dictionary.
+     * @return Returns the length of the dictionary.
+     */
+    public int lenDictionary(){
+       return table.length;
+    }
+
+    /**
+     * Method that returns the size of the dictionary.
+     * The Size is the amount of key-value pairs in the dictionary.
+     * @return Returns the amount of key-value pairs in the dictionary
+     */
+    public int sizeDictionary(){
+        return size;
+    }
+
+    /**
+     * Method for inserting an Dictionary.Element in the dictionary and checks if the size of the dictionary is greater than the
      * charge factor.
      *
      * @param key Key of the element that we want to insert
@@ -208,7 +227,7 @@ public class Dictionary {
 
     @Override
     public String toString() {
-        return "Dictionary{" +
+        return "Dictionary.Dictionary{" +
                 ",\n size=" + size +
                 ",\n chargeFactor=" + chargeFactor +
                 ", \n table=" + Arrays.toString(table) +
