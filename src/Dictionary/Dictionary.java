@@ -23,7 +23,7 @@ public class Dictionary {
      * Basic Constructor for the Dictionary.Dictionary
      */
     public Dictionary() {
-        table = new Element[10];
+    table = new Element[10];
         init_table(table);
         size = 0;
         chargeFactor = 0.75;
@@ -156,7 +156,7 @@ public class Dictionary {
      */
     public Object[] returnKeys(){
         Object[] list = new Object[size];
-        for (int i = 0; i < table.length; i++) {
+        for (int i = 0; i < size; i++) {
             if (table[i].flag == 1) {
                 list[i] = table[i].getKey();
             }
@@ -170,7 +170,7 @@ public class Dictionary {
      */
     public Object[] returnValues(){
         Object[] list = new Object[size];
-        for (int i = 0; i < table.length; i++) {
+        for (int i = 0; i < size; i++) {
             if (table[i].flag == 1) {
                 list[i] = table[i].getValue();
             }

@@ -34,7 +34,8 @@ public class TestEmptyDictionary {
 
     @Test
     public void testInsertKeyValuePair(){
-
+        dictionary.insertElement("Test", 1);
+        assertEquals("El valor de la clave 'Test' debe ser 1.", 1, dictionary.getDictionaryValue("Test", 0));
     }
 
 
