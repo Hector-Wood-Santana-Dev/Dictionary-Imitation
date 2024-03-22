@@ -32,7 +32,7 @@ public class Dictionary {
     /**
      * Parametrized Constructor for creating a custom size Dictionary.Dictionary
      */
-    public Dictionary(int sizeDictionary) {
+    private Dictionary(int sizeDictionary) {
         table = new Element[sizeDictionary];
         init_table(table);
         size = 0;
@@ -180,13 +180,11 @@ public class Dictionary {
 
     /**
      * Method that returns a value based of a key that is given.
-     * Returns the given byDefault value if the key is not found.
-     * Returns NULL if the given key if null, a not valid type.
-     * @param key Key of the key-value pair for searching the value.
-     * @param byDefault Value that is returned by default if the key is not found.
-     * @return Returns the value that is the pair from the given key.
+     * @param params The first parameter is the key of the value we want. The second one is the one that is returned if the key is not found.
+     * @return The value of the key-value pair if found. Returns the given byDefault option or null if the is no option given.
      */
-    public Object getDictionaryValue(Object key, Object byDefault){
+     public Object getDictionaryValue(Object... params){
+        Object key = params[0];
         int hashKey;
         try {
             hashKey = key.hashCode();
@@ -209,14 +207,28 @@ public class Dictionary {
                 }
             }
         }
-        return byDefault;
+        if (params.length != 1) {
+            return params[1];
+        } else {
+            return null;
+        }
     }
 
-    //TODO: dict.items(): Returns a view of all key-value pairs in the dictionary as tuples.
-    //TODO: dict.get(key[, default]): Returns the value associated with the given key. If the key is not found, it returns the default value (or None if not provided).
-    //TODO: dict.setdefault(key[, default]): Returns the value associated with the key. If the key is not found, it inserts the key with the default value (or None if not provided) and returns the default value.
+    /**
+     * Method that removes the key and returns its value. If the key is not found, it returns the default value.
+     * @param params The first parameter is the key of the value we want. The second one is the one that is returned if the key is not found.
+     * @return The value of the key-value pair if found. Returns the given byDefault option or null if the is no option given.
+     */
+    public Object popDictionaryValue(Object... params) {
+         Object key = params[0];
+         Object value = getDictionaryValue(key);
+         deleteElement(key);
+         return value;
+    }
+
+
     //TODO: dict.update(other_dict): Updates the dictionary with key-value pairs from another dictionary or iterable.
-    //TODO: dict.pop(key[, default]): Removes the key and returns its value. If the key is not found, it returns the default value (or raises KeyError if not provided).
+    //TODO: dict.pop(key[, default]): .
     //TODO: dict.popitem(): Removes and returns an arbitrary key-value pair as a tuple. Useful for FIFO operations.
     //TODO: dict.clear(): Removes all items from the dictionary.
     //TODO: dict.copy(): Returns a shallow copy of the dictionary.

@@ -32,11 +32,15 @@ public class TestEmptyDictionary {
         assertEquals("El tamaño debe ser 0.", 0, sizeDictionary);
     }
 
+    /**
+     * Test
+     */
     @Test
-    public void testInsertKeyValuePair(){
+    public void testInsertKeyValuePair() {
         dictionary.insertElement("Test", 1);
-        assertEquals("El valor de la clave 'Test' debe ser 1.", 1, dictionary.getDictionaryValue("Test", 0));
+        assertEquals("El valor de la clave 'Test' debe ser 1.", 1, dictionary.getDictionaryValue("Test"));
     }
+
 
 
 }
