@@ -5,6 +5,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import Dictionary.*;
 
+//TODO: CHECKEAR LOS TESTS, ESTAN MAL PLANTEADOS
 /**
  * Test Class for a one item on dictionary.
  */
