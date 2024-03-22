@@ -18,8 +18,8 @@ public class Main {
         Dictionary dictionary = new Dictionary();
         dictionary.insertElement(12,"meeee");
         System.out.println(dictionary.toString());
-        Dictionary cop = dictionary.copyDictionary();
-        System.out.println(cop.toString());
+        dictionary.clearDictionary();
+        System.out.println(dictionary.toString());
         //System.out.println(dictionary.toString());
         //dictionary.insertElement(13,"JAJAJAJAJ");
         //System.out.println(dictionary.toString());

@@ -68,6 +68,22 @@ public class Dictionary {
     }
 
     /**
+     * Method for resizing the dictionary.
+     */
+    private void resize(){
+        if ((double) size / table.length >= chargeFactor) {
+            int newSize = table.length*2;
+            Dictionary exchangeDictionary = new Dictionary(newSize);
+
+            for (Element element : table) {
+                exchangeDictionary.insertElement(element.getKey(), element.getValue());
+            }
+            this.table = exchangeDictionary.table;
+            this.size = exchangeDictionary.size;
+        }
+    }
+
+    /**
      * Method for inserting an Dictionary.Element in the dictionary and checks if the size of the dictionary is greater than the
      * charge factor.
      *
@@ -131,22 +147,6 @@ public class Dictionary {
         if (table[positionElement].flag == 1) {
             table[positionElement].setFlag(2);
             size--;
-        }
-    }
-
-    /**
-     * Method for resizing the dictionary.
-     */
-    private void resize(){
-        if ((double) size / table.length >= chargeFactor) {
-            int newSize = table.length*2;
-            Dictionary exchangeDictionary = new Dictionary(newSize);
-
-            for (Element element : table) {
-                exchangeDictionary.insertElement(element.getKey(), element.getValue());
-            }
-            this.table = exchangeDictionary.table;
-            this.size = exchangeDictionary.size;
         }
     }
 
@@ -226,6 +226,11 @@ public class Dictionary {
          return value;
     }
 
+    //TODO: dict.popitem(): Removes and returns an arbitrary key-value pair as a tuple. Useful for FIFO operations.
+    //public Object popArbitraryDictionaryValue(){
+    //
+    // }
+
     /**
      * Method for copying a dictionary.
      * @return Returns a copy of the dictionary.
@@ -233,8 +238,7 @@ public class Dictionary {
     public Dictionary copyDictionary() {
         int newSize = table.length;
         Dictionary dictionary2 = new Dictionary(newSize);
-        for (int i = 0; i < table.length; i++) {
-            Element element = table[i];
+        for (Element element : table) {
             if (element.getKey() != null) {
                 dictionary2.insertElement(element.getKey(), element.getValue());
             }
@@ -242,10 +246,19 @@ public class Dictionary {
         return dictionary2;
     }
 
+    /**
+     * Method that deletes all elements of the dictionary. It sets the flags to liberated (2).
+     */
+    public void clearDictionary(){
+        for (Element element : table) {
+            deleteElement(element);
+        }
+    }
+
+
+
     //TODO: dict.update(other_dict): Updates the dictionary with key-value pairs from another dictionary or iterable.
-    //TODO: dict.popitem(): Removes and returns an arbitrary key-value pair as a tuple. Useful for FIFO operations.
-    //TODO: dict.clear(): Removes all items from the dictionary.
-    //TODO: dict.copy(): Returns a shallow copy of the dictionary.
+
     //TODO: key in dict: Returns True if the key exists in the dictionary, otherwise False.
     //TODO: dict.fromkeys(iterable[, value]): Returns a new dictionary with keys from an iterable and values set to a default value.
     //TODO: dict.items(): Returns a view object that displays a list of a dictionary's key-value tuple pairs.
