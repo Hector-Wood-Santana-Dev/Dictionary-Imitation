@@ -16,12 +16,10 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args){
         Dictionary dictionary = new Dictionary();
-        //System.out.println(dictionary.toString());
-
         dictionary.insertElement(12,"meeee");
-        Object var1 = dictionary.popDictionaryValue(12);
-        System.out.println(var1);
         System.out.println(dictionary.toString());
+        Dictionary cop = dictionary.copyDictionary();
+        System.out.println(cop.toString());
         //System.out.println(dictionary.toString());
         //dictionary.insertElement(13,"JAJAJAJAJ");
         //System.out.println(dictionary.toString());

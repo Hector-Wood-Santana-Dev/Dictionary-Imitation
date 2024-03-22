@@ -226,13 +226,26 @@ public class Dictionary {
          return value;
     }
 
+    /**
+     * Method for copying a dictionary.
+     * @return Returns a copy of the dictionary.
+     */
+    public Dictionary copyDictionary() {
+        int newSize = table.length;
+        Dictionary dictionary2 = new Dictionary(newSize);
+        for (int i = 0; i < table.length; i++) {
+            Element element = table[i];
+            if (element.getKey() != null) {
+                dictionary2.insertElement(element.getKey(), element.getValue());
+            }
+        }
+        return dictionary2;
+    }
 
     //TODO: dict.update(other_dict): Updates the dictionary with key-value pairs from another dictionary or iterable.
-    //TODO: dict.pop(key[, default]): .
     //TODO: dict.popitem(): Removes and returns an arbitrary key-value pair as a tuple. Useful for FIFO operations.
     //TODO: dict.clear(): Removes all items from the dictionary.
     //TODO: dict.copy(): Returns a shallow copy of the dictionary.
-    //TODO: len(dict): Returns the number of items in the dictionary.
     //TODO: key in dict: Returns True if the key exists in the dictionary, otherwise False.
     //TODO: dict.fromkeys(iterable[, value]): Returns a new dictionary with keys from an iterable and values set to a default value.
     //TODO: dict.items(): Returns a view object that displays a list of a dictionary's key-value tuple pairs.
