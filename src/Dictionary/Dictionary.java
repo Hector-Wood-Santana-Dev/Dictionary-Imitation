@@ -1,7 +1,6 @@
 package Dictionary;
 
 import java.util.Arrays;
-
 import static java.lang.Boolean.*;
 
 /**
@@ -91,7 +90,7 @@ public class Dictionary {
      *
      * @param key   Key of the element that we want to insert
      * @param value Value of the element that we want to insert
-     * @return Returns TRUE if the element is inserted correctly, FALSE if an exception pops up and NULL if nothing happens.
+     * @return Returns TRUE if the element is inserted correctly, FALSE if the key is null and NULL if nothing happens.
      */
     public Boolean insertElement(Object key, Object value){
         //Calling the resize method for checking the charge factor of the dictionary and expanding it if needed.
@@ -140,20 +139,23 @@ public class Dictionary {
     /**
      * Method for deleting and element from the dictionary, by marking the flag to 2 (liberated).
      * @param key Key of the object that we want to delete.
+     * @return Returns TRUE if the element is deleted correctly, FALSE if the key is null and NULL if nothing happens.
      */
-    public void deleteElement(Object key){
+    public Boolean deleteElement(Object key){
         int hashKey;
         try {
             hashKey = key.hashCode();
         } catch (Exception e){
             System.out.println("The key cannot be null. Please enter a valid type.");
-            return;
+            return FALSE;
         }
         int positionElement = hashKey % table.length;
         if (table[positionElement].flag == 1) {
             table[positionElement].setFlag(2);
             size--;
+            return TRUE;
         }
+        return null;
     }
 
     /**

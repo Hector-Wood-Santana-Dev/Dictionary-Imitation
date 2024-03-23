@@ -4,6 +4,7 @@ import org.junit.*;
 
 import static org.junit.Assert.*;
 import Dictionary.*;
+import static java.lang.Boolean.*;
 
 //TODO: CHECKEAR LOS TESTS, ESTAN MAL PLANTEADOS
 /**
@@ -15,7 +16,7 @@ public class TestOneElementDictionary {
     /**
      * <pre>
      * Initializing the table with 1 element.
-     * The table length must be 10 (9 element null, 1 element valid).
+     * The table length must be 10 (9 null elements, 1 valid element).
      * </pre>
      */
     @Before
@@ -23,12 +24,13 @@ public class TestOneElementDictionary {
         dictionary = new Dictionary();
         dictionary.insertElement("Food", 3);
     }
+
     /**
      * <pre>
      * Test if the dictionary initializes correctly.
      * The length of the dictionary must be 10.
      * The size of the dictionary must be 1.
-     * Because we are inserting one element.
+     * Because there is one element inside the dictionary.
      * </pre>
      */
     @Test
@@ -40,38 +42,35 @@ public class TestOneElementDictionary {
     }
 
     /**
-     * <pre>
      * Test that verifies that given a key returns its attributed value.
-     * </pre>
      */
     @Test
     public void testGetDictionaryValue() {
-        assertEquals("The value of the key 'Food' must be 3.", 3, dictionary.getDictionaryValue("Food", 0));
+        assertEquals("The value of the key 'Food' must be 3.", 3, dictionary.getDictionaryValue("Food"));
     }
 
     /**
      * <pre>
-     *     Test that insert a valid element.
-     *     Also verifies that with the passed key it returns its value.
+     * Test that insert a valid element.
+     * Also verifies that with the passed key it returns its value.
      * </pre>
      */
     @Test
     public void testInsertElementValid() {
         dictionary.insertElement("Bacon", "egg");
-        assertEquals("The value of the key 'Food' must be 3.", 3, dictionary.getDictionaryValue("Food", 0));
-        assertEquals("The value of the key 'Bacon' must be 'egg'.", "egg", dictionary.getDictionaryValue("Bacon", 0));
+        assertEquals("The value of the key 'Bacon' must be 'egg'.", "egg", dictionary.getDictionaryValue("Bacon"));
     }
 
     /**
      * <pre>
-     *     Test that insert a null element.
-     *     Also verifies that with the passed key it returns an Exception.
+     * Test that insert a null element.
+     * Also verifies that with the passed key it returns an Exception.
      * </pre>
      */
     @Test
     public void testInsertElementNull() {
-        dictionary.insertElement(null, 1);
-        assertNull("The key cannot be null. Please enter a valid type.", dictionary.getDictionaryValue(null, 0));
+        assertEquals("The key cannot be null.", FALSE, dictionary.insertElement(null, 1));
+
     }
 
     /**
@@ -82,8 +81,7 @@ public class TestOneElementDictionary {
      */
     @Test
     public void testDeleteElementNull() {
-        dictionary.deleteElement(null);
-        assertNull("The key cannot be null. Please enter a valid type.", dictionary.getDictionaryValue(null, 0));
+        assertEquals("The key cannot be null.", FALSE, dictionary.deleteElement(null));
     }
 
     /**
@@ -96,6 +94,6 @@ public class TestOneElementDictionary {
     @Test
     public void testDeleteElementValid() {
         dictionary.deleteElement("Bacon");
-        assertEquals("The value of the key 'Bacon' does not exist.", 0, dictionary.getDictionaryValue("Bacon", 0));
+        assertEquals("The value of the key 'Bacon' does not exist.", null, dictionary.getDictionaryValue("Bacon"));
     }
 }
