@@ -2,6 +2,8 @@ package Dictionary;
 
 import java.util.Arrays;
 
+import static java.lang.Boolean.*;
+
 /**
  * Class that imitates the function of a Dictionary.Dictionary from Python.
  */
@@ -87,10 +89,11 @@ public class Dictionary {
      * Method for inserting an Dictionary.Element in the dictionary and checks if the size of the dictionary is greater than the
      * charge factor.
      *
-     * @param key Key of the element that we want to insert
+     * @param key   Key of the element that we want to insert
      * @param value Value of the element that we want to insert
+     * @return Returns TRUE if the element is inserted correctly, FALSE if an exception pops up and NULL if nothing happens.
      */
-    public void insertElement(Object key, Object value){
+    public Boolean insertElement(Object key, Object value){
         //Calling the resize method for checking the charge factor of the dictionary and expanding it if needed.
         resize();
 
@@ -99,7 +102,7 @@ public class Dictionary {
             hashKey = key.hashCode();
         } catch (Exception e){
             System.out.println("The key cannot be null. Please enter a valid type.");
-            return;
+            return FALSE;
         }
 
         int positionElement = hashKey % table.length;
@@ -108,27 +111,30 @@ public class Dictionary {
         if (table[positionElement].flag == 0 || table[positionElement].flag == 2) {
             table[positionElement] = new Element(key, value, 1);
             size++;
+            return TRUE;
         } else {
             for (int i = positionElement; i < table.length; i++) {
                 if (table[i].flag == 1 && key.equals(table[i].getKey())){
                     table[i].setValue(value);
-                    break;
+                    return TRUE;
                 } else {
                     table[i] = new Element(key, value, 1);
                     size++;
+                    return TRUE;
                 }
             }
             for (int i = positionElement; i > 0; i--) {
                 if (table[i].flag == 1 && key.equals(table[i].getKey())){
                     table[i].setValue(value);
-                    break;
+                    return TRUE;
                 } else {
                     table[i] = new Element(key, value, 1);
                     size++;
+                    return TRUE;
                 }
             }
         }
-
+        return null;
     }
 
     /**
