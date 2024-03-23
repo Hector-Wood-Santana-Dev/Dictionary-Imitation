@@ -1,6 +1,8 @@
 package Dictionary;
 
 import java.util.Arrays;
+import java.util.Random;
+
 import static java.lang.Boolean.*;
 
 /**
@@ -100,7 +102,6 @@ public class Dictionary {
         try {
             hashKey = key.hashCode();
         } catch (Exception e){
-            System.out.println("The key cannot be null. Please enter a valid type.");
             return FALSE;
         }
 
@@ -146,7 +147,6 @@ public class Dictionary {
         try {
             hashKey = key.hashCode();
         } catch (Exception e){
-            System.out.println("The key cannot be null. Please enter a valid type.");
             return FALSE;
         }
         int positionElement = hashKey % table.length;
@@ -235,9 +235,11 @@ public class Dictionary {
     }
 
     //TODO: dict.popitem(): Removes and returns an arbitrary key-value pair as a tuple. Useful for FIFO operations.
-    //public Object popArbitraryDictionaryValue(){
-    //
-    // }
+    public Object popArbitraryDictionaryValue(){
+        Random random = new Random();
+        Object randomNumber = random.ints(0,size).findFirst().getAsInt();
+        return popDictionaryValue(randomNumber);
+    }
 
     /**
      * Method for copying a dictionary.

@@ -1,12 +1,10 @@
 package Tests;
 
 import org.junit.*;
-
 import static org.junit.Assert.*;
 import Dictionary.*;
 import static java.lang.Boolean.*;
 
-//TODO: CHECKEAR LOS TESTS, ESTAN MAL PLANTEADOS
 /**
  * Test Class for a one item on dictionary.
  */
@@ -94,6 +92,19 @@ public class TestOneElementDictionary {
     @Test
     public void testDeleteElementValid() {
         dictionary.deleteElement("Bacon");
-        assertEquals("The value of the key 'Bacon' does not exist.", null, dictionary.getDictionaryValue("Bacon"));
+        assertNull("The value of the key 'Bacon' does not exist.", dictionary.getDictionaryValue("Bacon"));
     }
+
+    /**
+     * <pre>
+     * Test that pops a value given a key.
+     * </pre>
+     */
+    @Test
+    public void testPopValue(){
+        Object var = dictionary.popDictionaryValue("Food");
+        assertEquals("The value of the pop should be 3",3, var);
+        assertEquals("The size of the dictionary should be 0",0, dictionary.sizeDictionary());
+    }
+
 }
