@@ -3,6 +3,9 @@ package Tests;
 import org.junit.*;
 import static org.junit.Assert.*;
 import Dictionary.*;
+
+import java.util.Arrays;
+
 import static java.lang.Boolean.*;
 
 /**
@@ -68,7 +71,6 @@ public class TestOneElementDictionary {
     @Test
     public void testInsertElementNull() {
         assertEquals("The key cannot be null.", FALSE, dictionary.insertElement(null, 1));
-
     }
 
     /**
@@ -93,6 +95,32 @@ public class TestOneElementDictionary {
     public void testDeleteElementValid() {
         dictionary.deleteElement("Bacon");
         assertNull("The value of the key 'Bacon' does not exist.", dictionary.getDictionaryValue("Bacon"));
+    }
+
+    /**
+     * <prev>
+     *     Test that checks if the array of objects is correct.
+     *     Having the current keys in the array.
+     * </prev>
+     */
+    @Test
+    public void testReturnKeys(){
+        Object[] values = new Object[1];
+        values[0] = "Food";
+        assertEquals("It should return [Food].", values, dictionary.returnKeys());
+    }
+
+    /**
+     * <prev>
+     *     Test that checks if the array of objects is correct.
+     *     Having the current Values in the array.
+     * </prev>
+     */
+    @Test
+    public void testReturnValues(){
+        Object[] values = new Object[1];
+        values[0] = 3;
+        assertEquals("it should return 3.", values, dictionary.returnValues());
     }
 
     /**
