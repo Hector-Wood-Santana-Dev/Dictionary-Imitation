@@ -15,10 +15,8 @@ public class TestOneElementDictionary {
     private Dictionary dictionary;
 
     /**
-     * <pre>
      * Initializing the table with 1 element.
      * The table length must be 10 (9 null elements, 1 valid element).
-     * </pre>
      */
     @Before
     public void init(){
@@ -52,10 +50,8 @@ public class TestOneElementDictionary {
     }
 
     /**
-     * <pre>
      * Test that insert a valid element.
      * Also verifies that with the passed key it returns its value.
-     * </pre>
      */
     @Test
     public void testInsertElementValid() {
@@ -64,10 +60,8 @@ public class TestOneElementDictionary {
     }
 
     /**
-     * <pre>
      * Test that insert a null element.
      * Also verifies that with the passed key it returns an Exception.
-     * </pre>
      */
     @Test
     public void testInsertElementNull() {
@@ -125,9 +119,7 @@ public class TestOneElementDictionary {
     }
 
     /**
-     * <pre>
      * Test that pops a value given a key.
-     * </pre>
      */
     @Test
     public void testPopValue(){
@@ -145,6 +137,9 @@ public class TestOneElementDictionary {
         assertEquals("The amount of key-value pairs in the dictionary must be 0", 0, dictionary.sizeDictionary());
     }
 
+    /**
+     * Test that checks if the key is in the dictionary.
+     */
     @Test
     public void testKeyInDictionary(){
         assertEquals("It must return TRUE if the key is in the dictionary.", TRUE, dictionary.keyInDictionary("Food"));
