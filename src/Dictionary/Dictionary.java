@@ -201,16 +201,16 @@ public class Dictionary {
              return null;
         }
         int positionElement = hashKey % table.length;
-        if (key.equals(table[positionElement].getKey())) {
+        if (key.equals(table[positionElement].getKey()) && table[positionElement].getFlag() != 1) {
             return table[positionElement].getValue();
         } else{
             for (int i = positionElement; i < table.length; i++) {
-                if (key.equals(table[positionElement].getKey())) {
+                if (key.equals(table[positionElement].getKey()) && table[positionElement].getFlag() != 1) {
                     return table[positionElement].getValue();
                 }
             }
             for (int i = positionElement; i > 0; i--) {
-                if (key.equals(table[positionElement].getKey())) {
+                if (key.equals(table[positionElement].getKey()) && table[positionElement].getFlag() != 1) {
                     return table[positionElement].getValue();
                 }
             }
@@ -234,10 +234,16 @@ public class Dictionary {
          return value;
     }
 
-    //TODO: dict.popitem(): Removes and returns an arbitrary key-value pair as a tuple. Useful for FIFO operations.
+    /**
+     * Method that gives a random value and removes the key.
+     * @return The value of the key-value pair if found. Returns null if the key does not exist.
+     */
     public Object popArbitraryDictionaryValue(){
         Random random = new Random();
         Object randomNumber = random.ints(0,size).findFirst().getAsInt();
+        if (){
+
+        }
         return popDictionaryValue(randomNumber);
     }
 
@@ -267,7 +273,7 @@ public class Dictionary {
 
     /**
      * Method that looks for a key in the dictionary and returns TRUE if it finds it.
-     * @param key
+     * @param key key that we are looking for.
      * @return TRUE if the key is in the dictionary and FALSE if it isn't.
      */
     public boolean keyInDictionary(Object key){
