@@ -267,8 +267,11 @@ public class Dictionary {
      * Method that deletes all elements of the dictionary. It sets the flags to liberated (2).
      */
     public void clearDictionary(){
-        for (Element element : table) {
-            deleteElement(element);
+        for (int i = 0; i < table.length; i++) {
+            if(table[i].getFlag() == 1){
+                table[i].setFlag(2);
+                size--;
+            }
         }
     }
 
