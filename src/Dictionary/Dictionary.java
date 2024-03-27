@@ -138,7 +138,7 @@ public class Dictionary {
     }
 
     /**
-     * Method for deleting and element from the dictionary, by marking the flag to 2 (liberated).
+     * Method for deleting an element from the dictionary, by marking the flag to 2 (liberated).
      * @param key Key of the object that we want to delete.
      * @return Returns TRUE if the element is deleted correctly, FALSE if the key is null and NULL if nothing happens.
      */
@@ -164,9 +164,11 @@ public class Dictionary {
      */
     public Object[] returnKeys(){
         Object[] list = new Object[size];
-        for (int i = 0; i < size; i++) {
-            if (table[i].flag == 1) {
-                list[i] = table[i].getKey();
+        for (int i = 0; i < table.length; i++) {
+            for (int j = 0; j < size; j++){
+                if (table[i].flag == 1) {
+                    list[j] = table[i].getKey();
+                }
             }
         }
         return list;
@@ -178,9 +180,11 @@ public class Dictionary {
      */
     public Object[] returnValues(){
         Object[] list = new Object[size];
-        for (int i = 0; i < size; i++) {
-            if (table[i].flag == 1) {
-                list[i] = table[i].getValue();
+        for (int i = 0; i < table.length; i++) {
+            for (int j = 0; j < size; j++){
+                if (table[i].flag == 1) {
+                    list[j] = table[i].getValue();
+                }
             }
         }
         return list;
@@ -201,16 +205,16 @@ public class Dictionary {
              return null;
         }
         int positionElement = hashKey % table.length;
-        if (key.equals(table[positionElement].getKey()) && table[positionElement].getFlag() != 1) {
+        if (key.equals(table[positionElement].getKey()) && table[positionElement].getFlag() == 1) {
             return table[positionElement].getValue();
         } else{
             for (int i = positionElement; i < table.length; i++) {
-                if (key.equals(table[positionElement].getKey()) && table[positionElement].getFlag() != 1) {
+                if (key.equals(table[positionElement].getKey()) && table[positionElement].getFlag() == 1) {
                     return table[positionElement].getValue();
                 }
             }
             for (int i = positionElement; i > 0; i--) {
-                if (key.equals(table[positionElement].getKey()) && table[positionElement].getFlag() != 1) {
+                if (key.equals(table[positionElement].getKey()) && table[positionElement].getFlag() == 1) {
                     return table[positionElement].getValue();
                 }
             }
@@ -241,9 +245,6 @@ public class Dictionary {
     public Object popArbitraryDictionaryValue(){
         Random random = new Random();
         Object randomNumber = random.ints(0,size).findFirst().getAsInt();
-        if (){
-
-        }
         return popDictionaryValue(randomNumber);
     }
 
