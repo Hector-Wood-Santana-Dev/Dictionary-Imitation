@@ -6,7 +6,9 @@ import Tests.*;
 
  @RunWith(Suite.class)
  @SuiteClasses({
+         TestEmptyDictionary.class,
          TestOneElementDictionary.class,
+         TestTwoElementsDictionary.class,
 
  })
 

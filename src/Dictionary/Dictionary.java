@@ -87,7 +87,7 @@ public class Dictionary {
     }
 
     /**
-     * Method for inserting an Dictionary.Element in the dictionary and checks if the size of the dictionary is greater than the
+     * Method for inserting a Dictionary.Element in the dictionary and checks if the size of the dictionary is greater than the
      * charge factor.
      *
      * @param key   Key of the element that we want to insert
@@ -265,12 +265,21 @@ public class Dictionary {
         }
     }
 
-
+    /**
+     * Method that looks for a key in the dictionary and returns TRUE if it finds it.
+     * @param key
+     * @return TRUE if the key is in the dictionary and FALSE if it isn't.
+     */
+    public boolean keyInDictionary(Object key){
+        for (int i = 0; i < table.length; i++) {
+            if (table[i].getKey() == key){
+                return TRUE;
+            }
+        }
+        return FALSE;
+    }
 
     //TODO: dict.update(other_dict): Updates the dictionary with key-value pairs from another dictionary or iterable.
-
-    //TODO: key in dict: Returns True if the key exists in the dictionary, otherwise False.
-    //TODO: dict.fromkeys(iterable[, value]): Returns a new dictionary with keys from an iterable and values set to a default value.
     //TODO: dict.items(): Returns a view object that displays a list of a dictionary's key-value tuple pairs.
 
     @Override
