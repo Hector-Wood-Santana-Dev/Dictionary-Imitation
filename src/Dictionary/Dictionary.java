@@ -163,15 +163,20 @@ public class Dictionary {
      * @return Keys stored in the dictionary, stored in an Array of Objects.
      */
     public Object[] returnKeys(){
-        Object[] list = new Object[size];
-        for (int i = 0; i < table.length; i++) {
-            for (int j = 0; j < size; j++){
-                if (table[i].flag == 1) {
-                    list[j] = table[i].getKey();
+        if (size != 0){
+            Object[] list = new Object[size];
+            for (int i = 0; i < table.length; i++) {
+                for (int j = 0; j < size; j++){
+                    if (table[i].flag == 1) {
+                        list[j] = table[i].getKey();
+                    }
                 }
             }
+            return list;
+        } else {
+            return null;
         }
-        return list;
+
     }
 
     /**
@@ -179,15 +184,19 @@ public class Dictionary {
      * @return Values stored in the dictionary, stored in an Array of Objects.
      */
     public Object[] returnValues(){
-        Object[] list = new Object[size];
-        for (int i = 0; i < table.length; i++) {
-            for (int j = 0; j < size; j++){
-                if (table[i].flag == 1) {
-                    list[j] = table[i].getValue();
+        if (size != 0){
+            Object[] list = new Object[size];
+            for (int i = 0; i < table.length; i++) {
+                for (int j = 0; j < size; j++){
+                    if (table[i].flag == 1) {
+                        list[j] = table[i].getValue();
+                    }
                 }
             }
+            return list;
+        }else {
+            return null;
         }
-        return list;
     }
 
     /**

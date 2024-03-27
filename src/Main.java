@@ -9,7 +9,6 @@ import Tests.*;
          TestEmptyDictionary.class,
          TestOneElementDictionary.class,
          TestTwoElementsDictionary.class,
-
  })
 
 public class Main {

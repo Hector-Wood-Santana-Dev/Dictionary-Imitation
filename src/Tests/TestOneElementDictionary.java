@@ -4,8 +4,6 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import Dictionary.*;
 
-import java.util.Arrays;
-
 import static java.lang.Boolean.*;
 
 /**
@@ -69,10 +67,8 @@ public class TestOneElementDictionary {
     }
 
     /**
-     * <prev>
      *     Test that delete a null Element.
      *     Returns an Exception because the key is null.
-     * </prev>
      */
     @Test
     public void testDeleteElementNull() {
