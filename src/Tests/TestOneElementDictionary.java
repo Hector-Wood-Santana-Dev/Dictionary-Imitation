@@ -48,6 +48,7 @@ public class TestOneElementDictionary {
     @Test
     public void testGetDictionaryValue() {
         assertEquals("The value of the key 'Food' must be 3.", 3, dictionary.getDictionaryValue("Food"));
+        assertEquals("The value of the 'Test' must be default.", "default", dictionary.getDictionaryValue("Test", "default"));
     }
 
     /**
@@ -122,6 +123,8 @@ public class TestOneElementDictionary {
         values[0] = 3;
         assertEquals("it should return 3.", values, dictionary.returnValues());
     }
+
+
 
     /**
      * <pre>
