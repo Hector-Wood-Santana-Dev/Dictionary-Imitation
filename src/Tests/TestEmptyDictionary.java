@@ -137,4 +137,22 @@ public class TestEmptyDictionary {
         assertEquals("It must return TRUE if the key is in the dictionary and FALSE if it is not.", FALSE, dictionary.keyInDictionary("Food"));
     }
 
+    /**
+     * Test the resize of the dictionary once it passes the charge factor.
+     */
+    @Test
+    public void testResizeDictionary(){
+        assertEquals("The length of the dictionary should be 10.",10, dictionary.lenDictionary());
+        dictionary.insertElement("Test1", 1);
+        dictionary.insertElement("Test2", 2);
+        dictionary.insertElement("Test3", 3);
+        dictionary.insertElement("Test4", 4);
+        dictionary.insertElement("Test5", 5);
+        dictionary.insertElement("Test6", 6);
+        dictionary.insertElement("Test7", 7);
+        dictionary.insertElement("Test8", 8);
+        assertEquals("The length of the dictionary should be 10.",10, dictionary.lenDictionary());
+        dictionary.insertElement("Test9", 9);
+        assertEquals("The length of the dictionary should be 20.", 20, dictionary.lenDictionary());
+    }
 }
