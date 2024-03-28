@@ -108,4 +108,21 @@ public class TestTwoElementsDictionary {
         assertEquals("The value of the pop should be 2", 2, var1);
         assertEquals("The size of the dictionary should be 0", 0, dictionary.sizeDictionary());
     }
+    /**
+     * Test that checks if the dictionary has been cleared. It must have size = 0. and all flags to 0 or 2.
+     */
+    @Test
+    public void testClearDictionary(){
+        dictionary.clearDictionary();
+        assertEquals("The amount of key-value pairs in the dictionary must be 0", 0, dictionary.sizeDictionary());
+    }
+
+    /**
+     * Test that checks if the key is in the dictionary.
+     */
+    @Test
+    public void testKeyInDictionary(){
+        assertEquals("It must return TRUE if the key is in the dictionary.", TRUE, dictionary.keyInDictionary("Food"));
+        assertEquals("It must return TRUE if the key is in the dictionary.", TRUE, dictionary.keyInDictionary("Drink"));
+    }
 }
