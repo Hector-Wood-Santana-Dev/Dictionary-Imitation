@@ -121,6 +121,14 @@ public class TestEmptyDictionary {
     }
 
     /**
+     * Test that copies a dictionary.
+     */
+    @Test
+    public void testCopyDictionary(){
+
+    }
+
+    /**
      * Test that checks if the dictionary has been cleared. It must have size = 0. and all flags to 0 or 2.
      */
     @Test
