@@ -33,8 +33,8 @@ public class TestEmptyDictionary {
     public void testLenAndSize() {
         int lenDictionary = dictionary.lenDictionary();
         int sizeDictionary = dictionary.sizeDictionary();
-        assertEquals("La longitud debe ser 10.", 10, lenDictionary);
-        assertEquals("El tamaño debe ser 0.", 0, sizeDictionary);
+        assertEquals("The length must be 10.", 10, lenDictionary);
+        assertEquals("The size must be 0.", 0, sizeDictionary);
     }
 
     /**

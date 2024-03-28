@@ -125,4 +125,20 @@ public class TestTwoElementsDictionary {
         assertEquals("It must return TRUE if the key is in the dictionary.", TRUE, dictionary.keyInDictionary("Food"));
         assertEquals("It must return TRUE if the key is in the dictionary.", TRUE, dictionary.keyInDictionary("Drink"));
     }
+    /**
+     * Test the resize of the dictionary once it passes the charge factor.
+     */
+    @Test
+    public void testResizeDictionary(){
+        assertEquals("The length of the dictionary should be 10.",10, dictionary.lenDictionary());
+        dictionary.insertElement("Test0", 0);
+        dictionary.insertElement("Test1", 1);
+        dictionary.insertElement("Test4", 4);
+        dictionary.insertElement("Test5", 5);
+        dictionary.insertElement("Test6", 6);
+        dictionary.insertElement("Test7", 7);
+        assertEquals("The length of the dictionary should be 10.",10, dictionary.lenDictionary());
+        dictionary.insertElement("Test9", 9);
+        assertEquals("The length of the dictionary should be 20.", 20, dictionary.lenDictionary());
+    }
 }
