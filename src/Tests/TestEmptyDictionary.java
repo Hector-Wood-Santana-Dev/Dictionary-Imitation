@@ -121,11 +121,12 @@ public class TestEmptyDictionary {
     }
 
     /**
-     * Test that copies a dictionary.
+     * Test that copies a dictionary. It checks if the contents of the copied dictionary are identical to the source dictionary.
      */
     @Test
     public void testCopyDictionary(){
-
+        Dictionary dictionary2 = dictionary.copyDictionary();
+        assertEquals("The dictionary must be the same as the previous dictionary", dictionary.toString(), dictionary2.toString());
     }
 
     /**
