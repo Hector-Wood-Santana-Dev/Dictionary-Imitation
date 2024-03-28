@@ -298,9 +298,6 @@ public class Dictionary {
         return FALSE;
     }
 
-    //TODO: dict.update(other_dict): Updates the dictionary with key-value pairs from another dictionary or iterable.
-    //TODO: dict.items(): Returns a view object that displays a list of a dictionary's key-value tuple pairs.
-
     @Override
     public String toString() {
         return "Dictionary.Dictionary{" +
