@@ -115,7 +115,6 @@ public class Dictionary {
             size++;
             return TRUE;
         } else {
-
             for (int i = positionElement; i < table.length; i++) {
                 if (table[i].flag == 0 || table[i].flag == 2) {
                     table[i] = new Element(key, value, 1);
@@ -153,10 +152,25 @@ public class Dictionary {
             return FALSE;
         }
         int positionElement = hashKey % table.length;
-        if (table[positionElement].flag == 1) {
+        if (table[positionElement].flag == 1 && key.equals(table[positionElement].getKey())) {
             table[positionElement].setFlag(2);
             size--;
             return TRUE;
+        } else {
+            for (int i = positionElement; i < table.length; i++) {
+                if (table[i].flag == 1 && key.equals(table[i].getKey())) {
+                    table[i].setFlag(2);
+                    size--;
+                    return TRUE;
+                }
+            }
+            for (int i = positionElement; i > 0; i--) {
+                if (table[i].flag == 1 && key.equals(table[i].getKey())) {
+                    table[i].setFlag(2);
+                    size--;
+                    return TRUE;
+                }
+            }
         }
         return null;
     }
@@ -210,7 +224,7 @@ public class Dictionary {
         Object key = params[0];
         int hashKey;
         try {
-            hashKey = key.hashCode();
+            hashKey = abs(key.hashCode());
         } catch (Exception e){
              System.out.println("The key cannot be null. Please enter a valid type.");
              return null;
