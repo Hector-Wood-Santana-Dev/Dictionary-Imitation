@@ -1,9 +1,11 @@
 package Dictionary;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Random;
 
 import static java.lang.Boolean.*;
+import static java.lang.Math.abs;
 
 /**
  * Class that imitates the function of a Dictionary.Dictionary from Python.
@@ -100,7 +102,7 @@ public class Dictionary {
 
         int hashKey;
         try {
-            hashKey = key.hashCode();
+            hashKey = abs(key.hashCode());
         } catch (Exception e){
             return FALSE;
         }
@@ -113,23 +115,24 @@ public class Dictionary {
             size++;
             return TRUE;
         } else {
+
             for (int i = positionElement; i < table.length; i++) {
-                if (table[i].flag == 1 && key.equals(table[i].getKey())){
-                    table[i].setValue(value);
-                    return TRUE;
-                } else {
+                if (table[i].flag == 0 || table[i].flag == 2) {
                     table[i] = new Element(key, value, 1);
                     size++;
+                    return TRUE;
+                } else if (table[i].flag == 1 && key.equals(table[i].getKey())){
+                    table[i].setValue(value);
                     return TRUE;
                 }
             }
             for (int i = positionElement; i > 0; i--) {
-                if (table[i].flag == 1 && key.equals(table[i].getKey())){
-                    table[i].setValue(value);
-                    return TRUE;
-                } else {
+                if (table[i].flag == 0 || table[i].flag == 2) {
                     table[i] = new Element(key, value, 1);
                     size++;
+                    return TRUE;
+                } else if (table[i].flag == 1 && key.equals(table[i].getKey())){
+                    table[i].setValue(value);
                     return TRUE;
                 }
             }
