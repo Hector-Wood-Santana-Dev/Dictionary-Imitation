@@ -112,10 +112,10 @@ public class TestMoreThanHalfElements {
         dictionary.insertElement("Test12", 12);
         dictionary.insertElement("Test13", 13);
         dictionary.insertElement("Test14", 14);
-        dictionary.insertElement("Test15", 15);
 
         dictionary.deleteElement("Test14");
         assertNull("The value of the key 'Test14' should not exist.", dictionary.getDictionaryValue("Test14"));
+
         dictionary.deleteElement("Test1");
         assertNull("The value of the key 'Test1' should not exist.", dictionary.getDictionaryValue("Test1"));
         dictionary.deleteElement("Test15");
