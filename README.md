@@ -10,6 +10,8 @@ Imitation in Java of the functionalities of a Python dictionary.
 - returnKeys
 - returnValues
 - getDictionaryValue
-
-### Implemented JUnit Tests
-- testLenAndSize
+- popDictionaryValue
+- popArbitraryValue
+- copyDictionary
+- clearDictionary
+- keyInDictionary
