@@ -9,9 +9,9 @@ import java.util.Arrays;
 
 @RunWith(Suite.class)
  @SuiteClasses({
-         //TestEmptyDictionary.class,
-         //TestOneElementDictionary.class,
-         //TestTwoElementsDictionary.class,
+         TestEmptyDictionary.class,
+         TestOneElementDictionary.class,
+         TestTwoElementsDictionary.class,
          TestMoreThanHalfElements.class,
          //TestFullOfElements.class,
  })

@@ -7,7 +7,7 @@ import Dictionary.*;
 import static java.lang.Boolean.*;
 
 /**
- * Test Class for
+ * Test Class for a dictionary with more than half of its capacity full. The next insert will trigger the resize method
  */
 public class TestMoreThanHalfElements {
 
