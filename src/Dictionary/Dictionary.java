@@ -165,18 +165,17 @@ public class Dictionary {
     public Object[] returnKeys(){
         if (size != 0){
             Object[] list = new Object[size];
+            int j = 0;
             for (int i = 0; i < table.length; i++) {
-                for (int j = 0; j < size; j++){
-                    if (table[i].flag == 1) {
-                        list[j] = table[i].getKey();
-                    }
+                if (table[i].flag == 1 && list[j] == null) {
+                    list[j] = table[i].getKey();
+                    j++;
                 }
             }
             return list;
         } else {
             return null;
         }
-
     }
 
     /**
@@ -186,15 +185,15 @@ public class Dictionary {
     public Object[] returnValues(){
         if (size != 0){
             Object[] list = new Object[size];
+            int j = 0;
             for (int i = 0; i < table.length; i++) {
-                for (int j = 0; j < size; j++){
-                    if (table[i].flag == 1) {
-                        list[j] = table[i].getValue();
-                    }
+                if (table[i].flag == 1 && list[j] == null) {
+                    list[j] = table[i].getValue();
+                    j++;
                 }
             }
             return list;
-        }else {
+        } else {
             return null;
         }
     }
