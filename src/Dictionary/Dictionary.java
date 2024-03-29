@@ -148,7 +148,7 @@ public class Dictionary {
     public Boolean deleteElement(Object key){
         int hashKey;
         try {
-            hashKey = key.hashCode();
+            hashKey = abs(key.hashCode());
         } catch (Exception e){
             return FALSE;
         }

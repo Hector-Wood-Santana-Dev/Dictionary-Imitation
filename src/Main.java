@@ -9,15 +9,16 @@ import java.util.Arrays;
 
 @RunWith(Suite.class)
  @SuiteClasses({
-         TestEmptyDictionary.class,
-         TestOneElementDictionary.class,
-         TestTwoElementsDictionary.class,
-         //TestMoreThanHalfElements.class,
+         //TestEmptyDictionary.class,
+         //TestOneElementDictionary.class,
+         //TestTwoElementsDictionary.class,
+         TestMoreThanHalfElements.class,
          //TestFullOfElements.class,
  })
 
 public class Main {
     public static void main(String[] args){
         org.junit.runner.JUnitCore.main("Main");
+
     }
  }

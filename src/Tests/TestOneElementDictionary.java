@@ -119,6 +119,7 @@ public class TestOneElementDictionary {
      */
     @Test
     public void testPopValue(){
+        assertEquals("The size of the dictionary should be 1",1, dictionary.sizeDictionary());
         Object var = dictionary.popDictionaryValue("Food");
         assertEquals("The value of the pop should be 3",3, var);
         assertEquals("The size of the dictionary should be 0",0, dictionary.sizeDictionary());
