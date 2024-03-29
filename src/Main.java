@@ -13,7 +13,6 @@ import java.util.Arrays;
          TestOneElementDictionary.class,
          TestTwoElementsDictionary.class,
          TestMoreThanHalfElements.class,
-         //TestFullOfElements.class,
  })
 
 public class Main {
