@@ -125,6 +125,15 @@ public class TestOneElementDictionary {
     }
 
     /**
+     * Test that copies a dictionary. It checks if the contents of the copied dictionary are identical to the source dictionary.
+     */
+    @Test
+    public void testCopyDictionary(){
+        Dictionary dictionary2 = dictionary.copyDictionary();
+        assertEquals("The dictionary must be the same as the previous dictionary", dictionary.toString(), dictionary2.toString());
+    }
+
+    /**
      * Test that checks if the dictionary has been cleared. It must have size = 0. and all flags to 0 or 2.
      */
     @Test
@@ -139,5 +148,23 @@ public class TestOneElementDictionary {
     @Test
     public void testKeyInDictionary(){
         assertEquals("It must return TRUE if the key is in the dictionary.", TRUE, dictionary.keyInDictionary("Food"));
+    }
+
+    /**
+     * Test the resize of the dictionary once it passes the charge factor.
+     */
+    @Test
+    public void testResizeDictionary(){
+        assertEquals("The length of the dictionary should be 10.",10, dictionary.lenDictionary());
+        dictionary.insertElement("Test1", 1);
+        dictionary.insertElement("Test2", 2);
+        dictionary.insertElement("Test3", 3);
+        dictionary.insertElement("Test4", 4);
+        dictionary.insertElement("Test5", 5);
+        dictionary.insertElement("Test6", 6);
+        dictionary.insertElement("Test7", 7);
+        assertEquals("The length of the dictionary should be 10.",10, dictionary.lenDictionary());
+        dictionary.insertElement("Test8", 8);
+        assertEquals("The length of the dictionary should be 20.", 20, dictionary.lenDictionary());
     }
 }
